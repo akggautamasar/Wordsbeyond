@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     private val surface = Color.WHITE
     private val primary = Color.rgb(67, 56, 202)
     private val primaryDark = Color.rgb(55, 48, 163)
-    private val text = Color.rgb(24, 24, 35)
+    private val textColor = Color.rgb(24, 24, 35)
     private val secondary = Color.rgb(103, 103, 120)
     private val border = Color.rgb(225, 226, 235)
     private val success = Color.rgb(22, 101, 52)
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     private fun buildUi() {
         val root = FrameLayout(this).apply { setBackgroundColor(bg) }
         val scroll = ScrollView(this).apply {
-            fillViewport = true
+            setFillViewport(true)
             clipToPadding = false
             setPadding(dp(18), dp(18), dp(18), dp(104))
         }
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         val title = TextView(this).apply {
             text = "Beyond Words"
             textSize = 31f
-            setTextColor(text)
+            setTextColor(textColor)
             typeface = Typeface.create("sans-serif", Typeface.BOLD)
         }
         content.addView(title)
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             text = "No image selected"
             textSize = 17f
             typeface = Typeface.DEFAULT_BOLD
-            setTextColor(text)
+            setTextColor(textColor)
             setPadding(0, dp(12), 0, 0)
         }
         imageCard.addView(imageName)
@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity() {
         words = EditText(this).apply {
             hint = "Encoded words appear here…\n\nYou can also paste words here to decode an image."
             textSize = 15f
-            setTextColor(text)
+            setTextColor(textColor)
             setHintTextColor(Color.rgb(155, 156, 170))
             gravity = Gravity.TOP or Gravity.START
             typeface = Typeface.MONOSPACE
